@@ -8,6 +8,10 @@ COPY . /app
 
 # Install the application dependencies.
 WORKDIR /app
+# Install system dependencies needed for psycopg2 and build tools
+RUN apt-get update && apt-get install -y \
+    libpq-dev gcc python3-dev musl-dev
+
 RUN uv sync --frozen --no-cache
 
 # Run the application.
