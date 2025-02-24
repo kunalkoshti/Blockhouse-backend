@@ -58,7 +58,7 @@ jobs:
             docker rm fastapi-container || true
             docker run -d \
               --name fastapi-container \
-              -e DB_URL="${{secrets.DB_URL}}"
+              -e DB_URL="${{ secrets.DB_URL }}" \
               -p 8000:8000 \
               --restart unless-stopped \
               docker.io/kunalkoshti/blockhouse:latest
