@@ -2,7 +2,7 @@ name: Docker CI/CD
 
 on:
   push:
-    branches: [main]
+    branches: [CICD]
 
 env:
   REGISTRY: ${{ secrets.REGISTRY_URL }}
@@ -36,8 +36,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ env.REGISTRY }}:${{ github.sha }}
-            ${{ env.REGISTRY }}:latest
+            docker.io/kunalkoshti/blockhouse:${{ github.sha }}
+            docker.io/kunalkoshti/blockhouse:latest
 
   deploy:
     needs: build-push
