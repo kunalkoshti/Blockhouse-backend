@@ -35,6 +35,12 @@ jobs:
     needs: build-push
     runs-on: ubuntu-latest
     steps:
+      - name: Login to Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY.split('/')[0] }} # Extracts registry domain
+          username: ${{ secrets.REGISTRY_USERNAME }} # 'AWS' for ECR
+          password: ${{ secrets.REGISTRY_PASSWORD }} # Docker Hub token or ECR secret key
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v1.2.1
         with:
