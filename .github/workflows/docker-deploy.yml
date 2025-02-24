@@ -57,5 +57,4 @@ jobs:
             docker-compose run -d \
               --name fastapi-container \
               -p 8000:8000 \
-              --restart unless-stopped \
               docker.io/kunalkoshti/blockhouse:latest
