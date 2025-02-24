@@ -51,6 +51,5 @@ jobs:
             cd /var/docker-app
             echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" > .env
             chmod 600 .env
-            docker-compose pull 
-            docker-compose down
+            docker-compose pull docker.io/kunalkoshti/blockhouse:latest
             docker-compose up -d
