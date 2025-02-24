@@ -23,4 +23,4 @@ def create_order(order: schemas.OrderCreate, db: Session = Depends(db.get_db)):
 @app.get("/orders/", response_model=schemas.OrdersList)
 def get_orders(paginate: int = 0, limit: int = 100, db: Session = Depends(db.get_db)):
     orders = crud.get_orders(db=db, paginate=paginate, limit=limit)
-    return {"orders": orders}
+    return {"orders": orders }
