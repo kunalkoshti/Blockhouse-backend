@@ -22,7 +22,7 @@ jobs:
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd ~/var/docker-app
+            cd /var/docker-app
             git config --global user.email "kunal.koshti15@gmail.com" user.name "kunal" user.password "kunal@150"
             git remote set-url origin https://github.com/kunalkoshti/Blockhouse-backend.git
             git fetch origin CICD
