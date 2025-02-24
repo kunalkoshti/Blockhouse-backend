@@ -51,11 +51,6 @@ jobs:
             cd /var/docker-app
             echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" > .env
             chmod 600 .env
-            docker pull docker.io/kunalkoshti/blockhouse:latest
-            docker stop fastapi-container || true
-            docker rm fastapi-container || true
-            docker run -d \
-              --name fastapi-container \
-              -p 8000:8000 \
-              --restart unless-stopped \
-              docker.io/kunalkoshti/blockhouse:latest
+            docker compose pull 
+            docker compose down
+            docker compose up -d
