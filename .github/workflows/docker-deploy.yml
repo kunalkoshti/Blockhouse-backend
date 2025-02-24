@@ -54,7 +54,7 @@ jobs:
             docker pull docker.io/kunalkoshti/blockhouse:latest
             docker stop fastapi-container || true
             docker rm fastapi-container || true
-            docker run -d \
+            docker-compose run -d \
               --name fastapi-container \
               -p 8000:8000 \
               --env-file .env\
