@@ -46,8 +46,6 @@ jobs:
             echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" > .env
             chmod 600 .env
             docker pull ${{ env.REGISTRY }}:latest
-            docker stop fastapi-container || true
-            docker rm fastapi-container || true
             docker run -d \
               --name fastapi-container \
               -p 8000:8000 \
