@@ -23,12 +23,10 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd /var/docker-app
-            git init
             git config --global user.email "kunal.koshti15@gmail.com" 
             git config --global user.name "kunal" 
             git config --global user.password "kunal@150"
-            git remote set-url origin https://github.com/kunalkoshti/Blockhouse-backend.git
-            git fetch origin CICD
+            git clone https://github.com/kunalkoshti/Blockhouse-backend.git
             git checkout CICD
             git pull origin CICD
             docker-compose up --build
