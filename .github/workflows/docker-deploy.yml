@@ -2,7 +2,7 @@ name: Docker CI/CD
 
 on:
   push:
-    branches: [CICD]
+    branches: [main]
 
 env:
   REGISTRY: ${{ secrets.REGISTRY_URL }}
