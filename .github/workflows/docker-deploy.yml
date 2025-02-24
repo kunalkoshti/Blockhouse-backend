@@ -27,6 +27,7 @@ jobs:
             git config --global user.name "kunal" 
             git config --global user.password "kunal@150"
             git clone https://github.com/kunalkoshti/Blockhouse-backend.git
+            cd Blockhouse-backend
             git checkout CICD
             git pull origin CICD
             docker-compose up --build
